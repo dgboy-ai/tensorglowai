@@ -16,7 +16,7 @@ function App() {
           <img src={viteLogo} className="vite" alt="Vite logo" />
         </div>
         <div>
-          <h1>TensorGlow AI</h1>
+          <h1>Get started</h1>
           <p>
             Understand the sentiment of your content with ease.
           </p>
