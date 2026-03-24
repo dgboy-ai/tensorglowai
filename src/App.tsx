@@ -11,9 +11,22 @@ function App() {
   const analyzeSentiment = () => {
     const text = sentence.toLowerCase()
     
-    if (text.includes('good') || text.includes('great') || text.includes('love')) {
+    // Check for negation words
+    const isNegated = text.includes('not') || text.includes('never') || text.includes('no')
+    
+    // Check for sentiment words
+    const isPositive = text.includes('good') || text.includes('great') || text.includes('love')
+    const isNegative = text.includes('bad') || text.includes('hate') || text.includes('worst')
+
+    if (isNegated && isPositive) {
+      // "not good" -> Negative
+      setResult('Negative')
+    } else if (isNegated && isNegative) {
+      // "not bad" -> Positive
       setResult('Positive')
-    } else if (text.includes('bad') || text.includes('hate') || text.includes('worst')) {
+    } else if (isPositive) {
+      setResult('Positive')
+    } else if (isNegative) {
       setResult('Negative')
     } else {
       setResult('Neutral')
