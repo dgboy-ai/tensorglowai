@@ -17,6 +17,53 @@
   }
 }
 
+.sentiment-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 24px;
+}
+
+.sentiment-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text-h);
+  transition: border-color 0.3s, box-shadow 0.3s;
+  box-sizing: border-box;
+
+  &:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px var(--accent-bg);
+  }
+}
+
+.analyze-button {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.3s, transform 0.2s;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
 .hero {
   position: relative;
 

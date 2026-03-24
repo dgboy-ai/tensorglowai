@@ -5,7 +5,7 @@ import heroImg from './assets/hero.png'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [sentence, setSentence] = useState('')
 
   return (
     <>
@@ -16,17 +16,23 @@ function App() {
           <img src={viteLogo} className="vite" alt="Vite logo" />
         </div>
         <div>
-          <h1>Get started</h1>
+          <h1>TensorGlow AI</h1>
           <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
+            Understand the sentiment of your content with ease.
           </p>
         </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
+        <div className="sentiment-container">
+          <input
+            type="text"
+            placeholder="Type a sentence..."
+            className="sentiment-input"
+            value={sentence}
+            onChange={(e) => setSentence(e.target.value)}
+          />
+          <button className="analyze-button">
+            Analyze Sentiment
+          </button>
+        </div>
       </section>
 
       <div className="ticks"></div>
