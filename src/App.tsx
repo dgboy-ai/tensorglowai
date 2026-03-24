@@ -6,6 +6,19 @@ import './App.css'
 
 function App() {
   const [sentence, setSentence] = useState('')
+  const [result, setResult] = useState('')
+
+  const analyzeSentiment = () => {
+    const text = sentence.toLowerCase()
+    
+    if (text.includes('good') || text.includes('great') || text.includes('love')) {
+      setResult('Positive')
+    } else if (text.includes('bad') || text.includes('hate') || text.includes('worst')) {
+      setResult('Negative')
+    } else {
+      setResult('Neutral')
+    }
+  }
 
   return (
     <>
@@ -29,9 +42,14 @@ function App() {
             value={sentence}
             onChange={(e) => setSentence(e.target.value)}
           />
-          <button className="analyze-button">
+          <button className="analyze-button" onClick={analyzeSentiment}>
             Analyze Sentiment
           </button>
+          {result && (
+            <p className="sentiment-result">
+              Sentiment: <strong>{result}</strong>
+            </p>
+          )}
         </div>
       </section>
 

@@ -64,6 +64,12 @@
   }
 }
 
+.sentiment-result {
+  margin-top: 8px;
+  font-size: 18px;
+  color: var(--text-h);
+}
+
 .hero {
   position: relative;
 
