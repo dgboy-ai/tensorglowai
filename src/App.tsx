@@ -9,8 +9,18 @@ function App() {
   const [result, setResult] = useState('')
 
   const analyzeSentiment = () => {
-    const text = sentence.toLowerCase()
+    let text = sentence.toLowerCase()
     
+    // Check for contrast words
+    const contrastWords = ['but', 'however', 'although']
+    for (const word of contrastWords) {
+      if (text.includes(word)) {
+        const parts = text.split(word)
+        text = parts[parts.length - 1] // Use the part after the contrast word
+        break
+      }
+    }
+
     // Check for negation words
     const isNegated = text.includes('not') || text.includes('never') || text.includes('no')
     
